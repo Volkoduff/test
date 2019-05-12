@@ -6,7 +6,6 @@ body {
 .test-body {
 	padding: 20px 0 120px 0;
 }
-
 .header-title {
 	position: relative;
 	text-align: center;
@@ -41,7 +40,6 @@ body {
     width: 100%;
 	text-align: center;
 	z-index: 100;
-
 }
 .inner-test-wrap {
 	width: 100%;
@@ -87,12 +85,6 @@ h3 {
 .btn__next-question {
 	width: 280px;
 }
-.back-btn {
-
-}
-.next-btn {
-
-}
 .hidden {
 	display: none;
 }
@@ -101,9 +93,8 @@ h3 {
 	text-align: center;
 }
 .inner-test-wrap_title {
-	padding-top: 96px;
+	margin: 96px 0 90px 0;
 	font-size: 50px;
-	margin-bottom: 90px;
 }
 .question-number {
 	margin-top: 20px;
@@ -168,7 +159,6 @@ h3 {
 }
 
 /*Кнопка начала теста*/
-
 .test-wrap-picture {
 	position: relative;
 }
@@ -184,7 +174,8 @@ h3 {
 	transition: all 0.2s ease;
 	height: auto;
 	opacity: 0.6;
-	max-width: 400px;
+	max-width: 32%;
+	width: 30%;
 	
 }
 .test-wrap:hover {
@@ -219,20 +210,17 @@ h3 {
 	z-index: 50;
 	opacity: 0.2;
 }
-.test-wrap-picture_overlay:hover {
-}
-
 .test-wrap_picture-inner {
 	height: 380px;
 }
 .test-wrap_picture-inner__animals {
-	background: url(../images/kevin-mueller-1524322-unsplash.jpg) center center/cover;
+	background: url(../images/kevin-mueller-1524322-unsplash.jpg) top center/cover;
 }
 .test-wrap_picture-inner__space {
-	background: url(../images/greg-rakozy-38802-unsplash.jpg) center center/cover;
+	background: url(../images/greg-rakozy-38802-unsplash.jpg) top center/cover;
 }
 .test-wrap_picture-inner__common {
-	background: url(../images/julius-drost-1579220-unsplash.jpg) center center/cover;
+	background: url(../images/julius-drost-1579220-unsplash.jpg) top center/cover;
 }
 .close-button_wrap {
 	position: absolute;
@@ -241,7 +229,7 @@ h3 {
 	right: 20px;
 	font-size: 40px;
 	z-index: 100;
-		cursor: pointer;
+	cursor: pointer;
 }
 .close-button {
 	position: relative;

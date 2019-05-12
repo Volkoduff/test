@@ -1,6 +1,6 @@
 (function() {
   var similarList = document.querySelector('.list-for-templates');
-  var CARDLIMIT = 2; // Количество вопросов в тесте
+  var CARDLIMIT = 10; // Количество вопросов в тесте
 
   function checkAmountOfCards(finalAmount, finalCounOfCorrectAnswers) {
     if (finalAmount === CARDLIMIT) {

@@ -2,14 +2,11 @@
 
 /* 992-1200px */
 @media screen and (max-width: 1200px) {
-	.test-wrap {
+	.text-wrap {
 		padding: 10px;
 	}
 	.header-title {
-		padding: 70px 0 100px 0;
-	}
-	.next-qiestion-btn {
-		bottom: 4%;
+		padding: 30px 0 40px 0;
 	}
 	.inner-test-wrap {
 		padding: 30px 60px 100px 60px;
@@ -17,39 +14,58 @@
 	.results {
 		padding: 60;
 	}
-
+	.test-wrap {
+		max-width: 24%;
+	}
+	.test-title {
+		font-size: 20px;
+	}
 }
 
 /* 768-992px */
 @media screen and (max-width: 992px) {
-	.next-btn {
-	    top: 32%;
-    	right: 13%;
+	.inner-test-wrap_title {
+		margin: 20px 0 15px 0;
+		font-size: 40px;
 	}
-	.back-btn {
-	    top: 32%;
-    	left: 13%;
-	}
-	.buttons-wrap {
-		flex-direction: column;
-
+	.btn {
+		margin: 10px;
 	}
 	.test-wrap {
 		margin-bottom: 20px;
-	}
-	.finish-test-btn {
-		top: 32%;
+		max-width: 30%;
 	}
 }
 
 /* 578-768px */
 @media screen and (max-width: 768px) {
+	.test-body {
+	    padding: 20px 0 30px 0;
+	}
+	.test-wrap {
+	    max-width: 100%;
+    	width: 70%;
+	}
+	.buttons-wrap {
+		align-items: center;
+		flex-direction: column;
+	}
 	.header-title {
 		padding: 50px 0 60px 0;
+	}
+	.test-wrap_picture-inner {
+		height: 180px;
 	}
 }
 
 /* 320-576px */
 @media screen and (max-width: 576px) {
+	.header-title {
+		padding: 23px 0 35px 0;
+		font-size: 32px;
+	}
+	.inner-test-wrap_title {
+		font-size: 30px;
+	}
 
 }	
