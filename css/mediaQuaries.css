@@ -1,0 +1,55 @@
+/*/ --------------- Media Queries ---------------/*/
+
+/* 992-1200px */
+@media screen and (max-width: 1200px) {
+	.test-wrap {
+		padding: 10px;
+	}
+	.header-title {
+		padding: 70px 0 100px 0;
+	}
+	.next-qiestion-btn {
+		bottom: 4%;
+	}
+	.inner-test-wrap {
+		padding: 30px 60px 100px 60px;
+	}
+	.results {
+		padding: 60;
+	}
+
+}
+
+/* 768-992px */
+@media screen and (max-width: 992px) {
+	.next-btn {
+	    top: 32%;
+    	right: 13%;
+	}
+	.back-btn {
+	    top: 32%;
+    	left: 13%;
+	}
+	.buttons-wrap {
+		flex-direction: column;
+
+	}
+	.test-wrap {
+		margin-bottom: 20px;
+	}
+	.finish-test-btn {
+		top: 32%;
+	}
+}
+
+/* 578-768px */
+@media screen and (max-width: 768px) {
+	.header-title {
+		padding: 50px 0 60px 0;
+	}
+}
+
+/* 320-576px */
+@media screen and (max-width: 576px) {
+
+}	

@@ -1,0 +1,268 @@
+body {
+	position: relative;
+	background-color: #f7f7f7;
+	color: #fff;
+}
+.test-body {
+	padding: 20px 0 120px 0;
+}
+
+.header-title {
+	position: relative;
+	text-align: center;
+	padding: 30px 0 40px 0;
+	color: #24374a;
+}
+.header-title:after {
+	content: '';
+	background: #3eafd2;
+	position: absolute;
+	height: 2px;
+	bottom: 14px;
+	left: 0;
+	width: 100%;
+}
+.hidden {
+	display: none;
+}
+.test-card {
+	background: rgba(193,226,236,1);
+	background: -moz-linear-gradient(-45deg, rgba(193,226,236,1) 0%, rgba(156,206,222,1) 41%, rgba(132,191,209,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(193,226,236,1)), color-stop(41%, rgba(156,206,222,1)), color-stop(100%, rgba(132,191,209,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(193,226,236,1) 0%, rgba(156,206,222,1) 41%, rgba(132,191,209,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(193,226,236,1) 0%, rgba(156,206,222,1) 41%, rgba(132,191,209,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(193,226,236,1) 0%, rgba(156,206,222,1) 41%, rgba(132,191,209,1) 100%);
+	background: linear-gradient(135deg, rgba(193,226,236,1) 0%, rgba(156,206,222,1) 41%, rgba(132,191,209,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1e2ec', endColorstr='#84bfd1', GradientType=1 );
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+    width: 100%;
+	text-align: center;
+	z-index: 100;
+
+}
+.inner-test-wrap {
+	width: 100%;
+	position: relative;
+	padding: 40px;
+}
+h3 {
+	margin-bottom: 60px;	
+}
+.inner-test-wrap_item {
+	background: rgba(255, 255, 255, 0.7);
+	width: 70%;
+    max-width: 500px;
+	color: #24374a;
+	padding: 18px;
+	margin: 5px auto;
+	cursor: pointer;
+	border-radius: 15px;
+}
+.inner-test-wrap_item:hover {
+	background: #006080;
+	color: #fff;
+}
+.selected {
+	background: #00805f!important;
+	-webkit-box-shadow: inset 0px 14px 11px -5px rgba(0,0,0,0.27);
+	-moz-box-shadow: inset 0px 14px 11px -5px rgba(0,0,0,0.27);
+	box-shadow: inset 0px 14px 11px -5px rgba(0,0,0,0.27);
+	color: #e3e3e3!important;
+}
+.btn {
+	border-radius: 15px;
+	margin: 30px;
+	width: 120px;
+	line-height: 40px;
+	background: #3eafd2;
+	color: #fff;
+}
+.btn:hover {
+	background: #368ba5;
+
+}
+.btn__next-question {
+	width: 280px;
+}
+.back-btn {
+
+}
+.next-btn {
+
+}
+.hidden {
+	display: none;
+}
+.question-number {
+	font-size: 32px;
+	text-align: center;
+}
+.inner-test-wrap_title {
+	padding-top: 96px;
+	font-size: 50px;
+	margin-bottom: 90px;
+}
+.question-number {
+	margin-top: 20px;
+}
+.finish-test-btn {
+	z-index: 100;
+	background: #ffb53d;
+	position: absolute;
+	width: 150px;
+	color: #fff;
+	top: 32%;
+    left: 50%;
+    margin-left: -75px;
+}
+.list-for-templates {
+
+}
+.results {
+	z-index: 500;
+	top: 0;
+	left: 10%;
+	background: #ededed;
+    width: 80%;
+    padding: 150px;
+    margin-top: 100px; 
+    border: 1px solid #000;
+    position: absolute;
+    text-align: center;
+    border-radius: 15px;
+    color: #494b55;
+}
+.results-title {
+	text-align: center;
+}
+.confirm-btn {
+    margin: 0 auto;
+    position: static;
+}
+.results-text {
+	margin-bottom: 80px;
+	font-size: 40px;
+}
+.right-answers {
+	display: block;
+}
+.buttons-wrap {
+	display: flex;
+	justify-content: space-around;
+}
+.footer {
+	position: absolute;
+	padding: 100px 0 30px 0;
+	width: 100%;
+	background: #494b55;
+}
+
+.footer-title {
+	text-align: center;
+	font-size: 26px;
+	color: #f7f7f7;
+	z-index: 50;
+}
+
+/*Кнопка начала теста*/
+
+.test-wrap-picture {
+	position: relative;
+}
+.test-title {
+	margin-bottom: 10px;
+}
+
+.test-wrap {
+	overflow: hidden;
+	border-radius: 15px!important;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	height: auto;
+	opacity: 0.6;
+	max-width: 400px;
+	
+}
+.test-wrap:hover {
+	opacity: 1;
+	transition: all 0.2s ease;
+}
+.test-wrap:hover {
+	-webkit-box-shadow: 0px 7px 24px 0px rgba(0,0,0,0.39);
+	-moz-box-shadow: 0px 7px 24px 0px rgba(0,0,0,0.39);
+	box-shadow: 0px 7px 24px 0px rgba(0,0,0,0.39);
+	transition: all 0.2s ease;
+}
+.text-wrap {
+	background: rgba(255,243,224,1);
+	background: rgba(147,206,222,1);
+	background: -moz-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(147,206,222,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(73,165,191,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+	background: linear-gradient(135deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=1 );
+	padding: 30px 40px;
+}
+.test-wrap-picture_overlay {
+	position: absolute;
+	content: '';
+	background: #41beff;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 50;
+	opacity: 0.2;
+}
+.test-wrap-picture_overlay:hover {
+}
+
+.test-wrap_picture-inner {
+	height: 380px;
+}
+.test-wrap_picture-inner__animals {
+	background: url(../images/kevin-mueller-1524322-unsplash.jpg) center center/cover;
+}
+.test-wrap_picture-inner__space {
+	background: url(../images/greg-rakozy-38802-unsplash.jpg) center center/cover;
+}
+.test-wrap_picture-inner__common {
+	background: url(../images/julius-drost-1579220-unsplash.jpg) center center/cover;
+}
+.close-button_wrap {
+	position: absolute;
+	content: '';
+	top: 0;
+	right: 20px;
+	font-size: 40px;
+	z-index: 100;
+		cursor: pointer;
+}
+.close-button {
+	position: relative;
+
+	transition: all 0.2s ease;
+}
+.close-button:hover {
+	color: rgba(255,243,224,1);
+	transition: all 0.2s ease;
+}
+.close-button_description {
+	position: absolute;
+	bottom: 10px;
+    left: -143px;
+    font-size: 20px;
+    color: #fff;
+    cursor: default;
+}
+.animated {
+  -webkit-animation-duration: .2s;
+  -o-animation-duration: .2s;
+  -moz-animation-duration: .2s;
+  animation-duration: .2s;
+}
