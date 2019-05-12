@@ -9,7 +9,7 @@ body {
 .header-title {
 	position: relative;
 	text-align: center;
-	padding: 30px 0 40px 0;
+	padding: 50px 0 120px 0;
 	color: #24374a;
 }
 .header-title:after {
@@ -105,9 +105,9 @@ h3 {
 	position: absolute;
 	width: 150px;
 	color: #fff;
-	top: 32%;
+	top: 29%;
     left: 50%;
-    margin-left: -75px;
+    margin-left: -75px!important;
 }
 .list-for-templates {
 
@@ -163,7 +163,7 @@ h3 {
 	position: relative;
 }
 .test-title {
-	margin-bottom: 10px;
+	margin: 0 auto;
 }
 
 .test-wrap {
@@ -198,7 +198,11 @@ h3 {
 	background: -ms-linear-gradient(-45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
 	background: linear-gradient(135deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=1 );
-	padding: 30px 40px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	height: 45px;
+
 }
 .test-wrap-picture_overlay {
 	position: absolute;
@@ -253,4 +257,7 @@ h3 {
   -o-animation-duration: .2s;
   -moz-animation-duration: .2s;
   animation-duration: .2s;
+}
+.card-buttons-wrap {
+	justify-content: center;
 }
