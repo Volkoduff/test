@@ -13,13 +13,19 @@
       allAppends.innerHTML = '';
       closeButton.classList.add('hidden');
     });
+    closeButton.addEventListener('click', function() {
+      window.helpers.testSelectionPicruresShow();
+    })
 
     closeButton.addEventListener('mouseover', function(evt) {
       var card = document.querySelector('.inner-test-wrap');
+      window.helpers.scrollToPosition(0, 0)
       if (evt.target === closeButtonWrap || evt.target === closeIcon) {
         closeButtonDescription.classList.remove('fadeOutUp');
         closeButtonDescription.classList.remove('hidden');
-        closeButton.addEventListener('mouseout', hideDiscriptionOfCloseButton())
+        closeButton.addEventListener('mouseout', function() {
+          hideDiscriptionOfCloseButton()
+        })
       }
 
       function hideDiscriptionOfCloseButton() {
@@ -30,11 +36,8 @@
           }, 1500);
         }
       }
-
     })
   }
-
-
 
   window.closeButtonUtil = {
     displayCloseButton: displayCloseButton

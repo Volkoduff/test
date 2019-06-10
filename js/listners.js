@@ -1,70 +1,67 @@
 (function() {
-  var similarList = document.querySelector('.list-for-templates');
-  var warnings = {
-    pressNextButtonAdvice: 'Это пока что последний вопрос, нажмите кнопку "Перейти к следующему вопросу" для продолжения теста',
-    pressFinishButtonAdvice: 'Когда вы ответите на все вопросы появится кнопка "Завершить тест"',
-    firstCardWarning: 'Это самый первый вопрос'
-  }
-  addListnersToMainTestButtons(similarList);
 
-  function addListnersToMainTestButtons() {
+  addHandlerToMainTestButtons();
+
+  addHandlerToShowFinalAdvise()
+
+  function addHandlerToMainTestButtons() {
     var beginTestButton = document.querySelectorAll('.test-wrap');
-    for (var mainTestButtonCounter = 0; mainTestButtonCounter < beginTestButton.length; mainTestButtonCounter++) {
-      beginTestButton[mainTestButtonCounter].addEventListener('click', window.testCheck.appendCardByClick);
+    for (var i = 0; i < beginTestButton.length; i++) {
+      beginTestButton[i].addEventListener('click', window.testCheck.appendCardByClick);
+      beginTestButton[i].addEventListener('click', function() {
+        window.helpers.testSelectionPicruresHide();
+      })
     }
   }
 
-  function addListenersToCardButtons(currentTestCard, currentCounter, testCards, ) {
-    addListnerToNextQuestionButton(currentTestCard);
-    addListnerToBackButton(currentTestCard, currentCounter, testCards);
-    addListnerToNextButton(currentTestCard, currentCounter, testCards);
+  function addHandlerToShowFinalAdvise() {
+    document.addEventListener('click', window.testCheck.showFinalAdvise);
   }
 
-  function addListnerToNextQuestionButton(currentTestCard) {
-    var nextQuestionButton = currentTestCard.querySelector('.next-qiestion-btn');
+  function addHandlersToCardButtons(card, iterator, cards) {
+    addHandlerToNextQuestionButton(card);
+    addHandlerToBackButton(card, iterator, cards);
+    addHandlerToNextButton(card, iterator, cards);
+    addHandlerToAnswerChoices(card);
+  }
+
+  function addHandlerToAnswerChoices(card) {
+    card.addEventListener('click', window.testCheck.getNumberOfAnsweredAnswers);
+    card.addEventListener('click', window.testCheck.ifTestIsDoneDisplayFinishButton);
+
+  }
+
+  function addHandlerToNextQuestionButton(card) {
+    var nextQuestionButton = card.querySelector('.btn__next-question');
     nextQuestionButton.addEventListener('click', window.testCheck.appendCardByClick);
   }
 
-  function addListnerToBackButton(currentTestCard, currentCounter, testCards) {
-    var backButton = currentTestCard.querySelector('.back-btn');
+  function addHandlerToBackButton(card, iterator, cards) {
+    var backButton = card.querySelector('.back-btn');
     backButton.addEventListener('click', function() {
-      if (currentCounter >= 1) {
-        testCards[currentCounter].classList.add('hidden');
-        currentTestCard = testCards[currentCounter].previousElementSibling.classList.remove('hidden');
+      if (iterator >= 1) {
+        cards[iterator].classList.add('hidden');
+        card = cards[iterator].previousElementSibling.classList.remove('hidden');
       } else {
-        alert(warnings.firstCardWarning);
+        backButton.disabled = true;
       }
     });
   }
 
-  function addListnerToNextButton(currentTestCard, currentCounter, testCards) {
-    var forwardButton = currentTestCard.querySelector('.next-btn');
+  function addHandlerToNextButton(card, iterator, cards) {
+    var forwardButton = card.querySelector('.next-btn');
     forwardButton.addEventListener('click', function() {
-      if (currentCounter < testCards.length && testCards[currentCounter].nextElementSibling !== null) {
-        testCards[currentCounter].classList.add('hidden');
-        testCards[currentCounter].nextElementSibling.classList.remove('hidden');
-      } else {
-        alert(warnings.pressNextButtonAdvice);
+      if (iterator < cards.length && cards[iterator].nextElementSibling !== null) {
+        cards[iterator].classList.add('hidden');
+        cards[iterator].nextElementSibling.classList.remove('hidden');
+      } else if (iterator + 1 === cards.length) {
+        forwardButton.disabled = true;
       }
     });
   }
-
-
-
-
 
   window.listners = {
-    addListenersToCardButtons: addListenersToCardButtons,
-    warnings: warnings
+    addHandlersToCardButtons: addHandlersToCardButtons,
   }
 
 })()
-
-// ПЕРЕДАЧА ПЕРЕМЕННЫХ С ФУНКЦИЕЙ КОЛЛБЭКОМ
-// глобальная переменная
-// var generalLastName = 'Elison';
-
-// function getInput(options, callback) { 
-//     allUserData.push(options);
-//     callback(generalLastName, options);
-// }

@@ -1,8 +1,24 @@
 (function() {
 
-  var similarList = document.querySelector('.list-for-templates');
-  var chosenTestArray = '';
-  var CARDLIMIT = 10;
+  var cardDataAppend = function(data, eventTarget) {
+    var similarList = document.querySelector('.list-for-templates');
+    scrollToTop();
+    appendingOfCards(data, eventTarget, similarList);
+    var testCards = similarList.querySelectorAll('.test-card');
+    var currentTestCard = replaceCards(testCards);
+    window.functionality.addHandlerForOneAnswerSelection(currentTestCard);
+    window.closeButtonUtil.displayCloseButton();
+  }
+
+  var appendingOfCards = function(data, eventTarget, templatesList) {
+    var similarTestTemplate = document.querySelector('#test-card-template')
+      .content.querySelector('.test-card');
+    var testCard = similarTestTemplate.cloneNode(true);
+    insertQuestionText(testCard, data, eventTarget);
+    window.testCheck.insertCurrentIndexNumberOfCard(testCard);
+    insertAnswerChoises(testCard, data, eventTarget);
+    templatesList.appendChild(testCard);
+  }
 
   function textFromServerApplyingToCards(mainTestButtonCounter) {
     window.backEnd.downloadData(function(xhr) {
@@ -14,57 +30,79 @@
     })
   }
 
-  var cardDataAppend = function(data, eventTarget) {
-    generationTextForCards(data, eventTarget);
-    var testCards = similarList.querySelectorAll('.test-card');
+  function insertAnswerChoises(currentCard, dataArray, openedTest) {
+    var testCardText = currentCard.querySelectorAll('.inner-test-wrap_item');
+    for (var i = 0; i < testCardText.length; i++) {
+      // подставляем варианты ответа из серверных данных
+      testCardText[i].textContent = getTestArrayDataOfChosenCard(dataArray, openedTest).answers[i];
+    }
+  }
 
-    for (var cardCounter = 0; cardCounter < testCards.length; cardCounter++) {
-      var oneCard = testCards[cardCounter].classList.contains('hidden');
-      var previousTestCard;
-      var currentCounter;
+  function insertQuestionText(currentCard, dataArray, openedTest) {
+    var questionText = currentCard.querySelector('.inner-test-wrap_title');
+    questionText.textContent = getTestArrayDataOfChosenCard(dataArray, openedTest).question;
+  }
+
+  function getTestArrayDataOfChosenCard(dataArray, openedTest) {
+    var similarList = document.querySelector('.list-for-templates');
+    var indexOfCurrendCard = similarList.children.length;
+    // dataset через eventTarget (space, nature, common)
+    chosenTest = selectorCheck(openedTest).dataset
+    var chosenTestNumber = chosenTest.testNumber;
+    var chosenTestName = chosenTest.testName;
+    if (chosenTestName === 'space') {
+      requiredDataSet = dataArray[chosenTestNumber].space;
+    } else if (chosenTestName === 'nature') {
+      requiredDataSet = dataArray[chosenTestNumber].nature;
+    } else if (chosenTestName === 'common') {
+      requiredDataSet = dataArray[chosenTestNumber].common;
+    }
+    return requiredDataSet[indexOfCurrendCard]
+  }
+
+  function replaceCards(cards) {
+    for (var cardCounter = 0; cardCounter < cards.length; cardCounter++) {
+      var oneCard = cards[cardCounter].classList.contains('hidden');
       if (!oneCard[cardCounter] && cardCounter >= 1) {
-        previousTestCard = testCards[cardCounter - 1];
+        var previousTestCard = cards[cardCounter - 1];
         previousTestCard.classList.add('hidden');
       } else {
         cardCounter = 0;
       }
-      var currentTestCard = testCards[cardCounter];
-      currentCounter = cardCounter;
+      var currentCard = cards[cardCounter];
+      var currentCounter = cardCounter;
     }
-    window.listners.addListenersToCardButtons(currentTestCard, currentCounter, testCards);
-    window.functionality.selectOneAnswer(currentTestCard);
-    window.closeButtonUtil.displayCloseButton();
+    window.listners.addHandlersToCardButtons(currentCard, currentCounter, cards);
+    return currentCard;
   }
 
-  var generationTextForCards = function(data, eventTarget) {
-    var similarTestTemplate = document.querySelector('#test-card-template')
-      .content.querySelector('.test-card');
-    var testCard = similarTestTemplate.cloneNode(true);
-    var testCardText = testCard.querySelectorAll('.inner-test-wrap_item');
-    var questionNumberText = testCard.querySelector('.question-number');
-    var questionText = testCard.querySelector('.inner-test-wrap_title');
-    var quantityOfAppendedCards = similarList.children.length;
-    questionText.textContent = getChosenTestArray(data, eventTarget).question; // подставляем вопросы из данных с сервера
-    questionNumberText.textContent = 'Вопрос №' + (quantityOfAppendedCards + 1 + ' из ' + CARDLIMIT); // подставляем варианты ответа из данных с сервера
-    for (var i = 0; i < testCardText.length; i++) {
-      testCardText[i].textContent = getChosenTestArray(data, eventTarget).answers[i]; // подставляем варианты ответа из данных с сервераподставляем порядковый номер вопроса
-    }
-    similarList.appendChild(testCard);
+  function insertQuantityOfQuerstionsNeedToFinish(currentCard) {
+    var answeresToAnswer = currentCard.querySelector('.question-answered');
+    answeresToAnswer.textContent =
+      'Вы ответили на ' + window.testCheck.counterOfAnsweredAnsweres() + ' вопросов';
   }
 
-  function getChosenTestArray(data, eventTarget) {
-    var quantityOfAppendedCards = similarList.children.length;
-    var chosenTest = eventTarget.target.parentNode.parentNode.dataset; // dataset через eventTarget (first, second, ...)
-    var chosenTestNumber = chosenTest.testNumber;
-    var chosenTestName = chosenTest.testName;
-    if (chosenTestName === 'space') {
-      chosenTestArray = data[chosenTestNumber].space;
-    } else if (chosenTestName === 'nature') {
-      chosenTestArray = data[chosenTestNumber].nature;
-    } else if (chosenTestName === 'common') {
-      chosenTestArray = data[chosenTestNumber].common;
+
+
+  function selectorCheck(openedTest) {
+    var foundSelector;
+    var arrayOfClickedTestSelectors = openedTest.path;
+    if (!openedTest.srcElement.classList.contains('btn__next-question')) {
+      for (var i = 0; i < arrayOfClickedTestSelectors.length; i++) {
+        var neededSelector = arrayOfClickedTestSelectors[i].classList.contains('test-wrap');
+        if (neededSelector) {
+          foundSelector = arrayOfClickedTestSelectors[i];
+          break;
+        }
+      }
+    } else {
+      foundSelector = arrayOfClickedTestSelectors[0];
     }
-    return chosenTestArray[quantityOfAppendedCards]
+    return foundSelector;
+  }
+
+  function scrollToTop() {
+    window.helpers.scrollToPosition(0, 0);
   }
 
   window.dataInit = {

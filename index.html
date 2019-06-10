@@ -1,129 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8">
-	<title>Тест</title>
-	<!-- Animate CSS -->
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/mediaQuaries.css">
-	<!-- FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Alice|Merriweather:400,700&amp;subset=cyrillic" rel="stylesheet">
-	<!-- FontAwesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Тест</title>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mediaQuaries.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Alice|Merriweather:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
+
 <body>
-	<header class="header">
-		<div class="container">
-			<h1 class=" header-title">
+    <header class="header">
+        <div class="container">
+            <h1 class=" header-title">
 				Выберите один из представленных тестов для прохождения
 			</h1>
-		</div>	
-	</header>
-	<section class="test-body">
-		<div class="container">
-			<div class="buttons-wrap">
-				<div class="test-wrap" data-test-name="nature" data-test-number="0">
-					<div class="text-wrap">
-						<h2 class="test-title">
-						"О животных"
-					</h2>
-					</div>
-					<div class="test-wrap-picture">
-						<div class="test-wrap_picture-inner test-wrap_picture-inner__animals">
-						</div>
-						<div class="test-wrap-picture_overlay"></div>
-					</div>
-				</div>
-				<div class="test-wrap" data-test-name="space" data-test-number="1">
-					<div class="text-wrap">
-						<h2 class="test-title">
+        </div>
+    </header>
+    <section class="test-body">
+        <div class="container">
+            <div class="buttons-wrap">
+                <div class="test-wrap split-effect" data-test-name="nature" data-test-number="0">
+                    <div class="text-wrap">
+                        <h2 class="test-title">
+							"О животных"
+						</h2>
+                    </div>
+                    <div class="test-wrap-picture">
+                        <div class="test-wrap_picture-inner test-wrap_picture-inner__animals">
+                        </div>
+                        <div class="test-wrap-picture_overlay"></div>
+                    </div>
+                </div>
+                <div class="test-wrap split-effect" data-test-name="space" data-test-number="1">
+                    <div class="text-wrap">
+                        <h2 class="test-title">
 						Космос
 					</h2>
-					</div>
-					<div class="test-wrap-picture">
-						<div class="test-wrap_picture-inner test-wrap_picture-inner__space">
-						</div>
-						<div class="test-wrap-picture_overlay"></div>
-					</div>
-				</div>
-				<div class="test-wrap" data-test-name="common" data-test-number="2">
-					<div class="text-wrap">
-						<h2 class="test-title">
+                    </div>
+                    <div class="test-wrap-picture">
+                        <div class="test-wrap_picture-inner test-wrap_picture-inner__space">
+                        </div>
+                        <div class="test-wrap-picture_overlay"></div>
+                    </div>
+                </div>
+                <div class="test-wrap split-effect" data-test-name="common" data-test-number="2">
+                    <div class="text-wrap">
+                        <h2 class="test-title">
 						Общие знания
 					</h2>
-					</div>
-					<div class="test-wrap-picture">
-						<div class="test-wrap_picture-inner test-wrap_picture-inner__common">
-						</div>
-						<div class="test-wrap-picture_overlay"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="section-templates">
-		<div class="container">
-			<div class="list-for-templates">
-			</div>
-		</div>
-	</section>
-	<footer class="footer">
-		<h3 class="footer-title">
+                    </div>
+                    <div class="test-wrap-picture">
+                        <div class="test-wrap_picture-inner test-wrap_picture-inner__common">
+                        </div>
+                        <div class="test-wrap-picture_overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="list-for-templates">
+    </div>
+    <footer class="footer d-none">
+        <h3 class="footer-title">
 		</h3>
-	</footer>
-	
-	<!-- Модальные окна -->
-	<div></div>
+    </footer>
 
-	<!-- Кнопка закрыть -->
-	<div class="close-button_wrap">
-		<span class="close-button hidden">
+    <!-- Кнопка закрыть -->
+    <div class="close-button_wrap">
+        <span class="close-button hidden">
 			<i class="fas fa-window-close"></i>
 			<span class="close-button_description hidden animated">Закрыть тест</span>
-		</span>
-	</div>
+        </span>
+    </div>
 
-	<!-- Результаты -->
-	<div class="results hidden">
-		<h3 class="results-title">
-			Поздравляем Вы закончили тест!
-		</h3>
-		<p class="results-text"></p>
-		<div class="confirm-btn btn">Отлично!</div>
-	</div>
-	<div class="btn finish-test-btn hidden">
-	<div class="finish-test-btn_inner">Завершить тест</div> 
-	</div>
+    <!-- Результаты -->
+    <div class="results hidden">
+        <div class="results-wrap">
+            <h3 class="results-title">
+                Тест закончен
+            </h3>
+            <p class="results-text">Ваши результаты:</p>
+            <span class="correct-answers-number"></span>
+            <button type="button" class="confirm-btn">Закрыть</button>
+        </div> 
+        
+    </div>
+    <button type="button" class="finish-test-btn hidden">
+        Завершить
+    </button>
 
-	<!-- Шаблон для тестовый карточек -->
-	<template id="test-card-template">
-	<div class="test-card">
-		<div class="container">
-			<div class="inner-test-wrap">
-				<div class="question-number">1</div>
-				<h3 class="inner-test-wrap_title">Выберите один из вариантов</h3>
-				<p class="inner-test-wrap_item">Первый вариант</p>
-				<p class="inner-test-wrap_item">Второй вариант</p>
-				<p class="inner-test-wrap_item">Третий вариант</p>
-				<p class="inner-test-wrap_item">Четвертый вариант</p>
-				<div class="card-buttons-wrap d-flex">
-					<div class="back-btn btn">Назад</div>
-					<div class="next-qiestion-btn btn btn__next-question">Перейти к следующему вопросу</div>
-					<div class="next-btn btn">Вперед</div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-</template>
+    <!-- Модалки -->
+    <div class="modal-window hidden">
+        <div class="modal-container">
+            <div class="modal-wrap">
+                <div class="modal-text">Текст модального окна</div>
+                <button class="modal-button" type="button">Ок</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Шаблон для тестовый карточек -->
+    <template id="test-card-template">
+        <div class="test-card">
+            <div class="container">
+                <div class="inner-test-wrap">
+                    <div class="question-number">1</div>
+                    <div class="question-answered"></div>
+                    <h3 class="inner-test-wrap_title">Выберите один из вариантов</h3>
+                    <button type="button" class="inner-test-wrap_item">Первый вариант</button>
+                    <button type="button" class="inner-test-wrap_item">Второй вариант</button>
+                    <button type="button" class="inner-test-wrap_item">Третий вариант</button>
+                    <button type="button" class="inner-test-wrap_item">Четвертый вариант</button>
+                    <div class="card-buttons-wrap">
+                        <button type="button" class="btn btn__next-question">Сгенерировать следующий вопрос</button>
+
+                        <div class="card-buttons-navigation-wrap">
+                            <button type="button" class="back-btn btn"><span><i class="fas fa-arrow-left"></i></span></button>
+                        <button type="button" class="next-btn btn"><span><i class="fas fa-arrow-right"></i></span></button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
 </body>
 <script src="js/backend.js"></script>
-<script src="js/final-test-check.js"></script>
-<script src="js/functionality.js"></script>
+<script src="js/test-check.js"></script>
 <script src="js/data-init.js"></script>
+<script src="js/functionality.js"></script>
 <script src="js/listners.js"></script>
 <script src="js/close-button.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/modal.js"></script>
+
 </html>

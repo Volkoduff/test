@@ -1,39 +1,43 @@
 (function() {
 
   // один вариант ответа для текущей карточки вопроса
-  function selectOneAnswer(currentTestCard) {
+  function addHandlerForOneAnswerSelection(currentTestCard) {
     var cardItemsList = currentTestCard.querySelectorAll('.inner-test-wrap_item');
-    var correctAnswer = false;
     for (var testItemsCounter = 0; testItemsCounter < cardItemsList.length; testItemsCounter++) {
       cardItemsList[testItemsCounter].addEventListener('click', function(evt) {
-        if (!getCheckResultIfOfSelectedAnswer(cardItemsList, correctAnswer)) {
-          evt.target.classList.add('selected');
-          if (evt.target.classList.contains('correct')) {
-            evt.target.classList.add('chosen-correct-answer');
-          }
-        } else if (evt.target.classList.contains('selected')) {
-          evt.target.classList.remove('selected');
-          if (evt.target.classList.contains('correct')) {
-            evt.target.classList.remove('chosen-correct-answer');
-          }
+
+        if (isAnswered(cardItemsList)) {
+          unSelectButton(cardItemsList);
+          selectButton(evt);
+        } else {
+          selectButton(evt);
         }
+
       });
     }
   }
 
-  // проверка на то, выбран ли ответ, если ничего не выбрано - дает поставить класс 'selected'
-  function getCheckResultIfOfSelectedAnswer(cardItemsList) {
-    for (var h = 0; h < cardItemsList.length; h++) {
-      var checkForSelectItem = cardItemsList[h].classList.contains('selected');
-      if (checkForSelectItem) {
-        break;
-      }
+  function selectButton(clickedButton) {
+     clickedButton.target.classList.add('selected');
+  }
+
+  function isAnswered(listOfAnswers) {
+    for (var h = 0; h < listOfAnswers.length; h++) {
+      var selectedAnswer = listOfAnswers[h].classList.contains('selected');
+      if (selectedAnswer) {
+        return true;
+      } 
     }
-    return checkForSelectItem;
+  }
+
+  function unSelectButton(listOfAnswers) {
+    for (var h = 0; h < listOfAnswers.length; h++) {
+      listOfAnswers[h].classList.remove('selected');;
+    }
   }
 
   window.functionality = {
-    selectOneAnswer: selectOneAnswer
+    addHandlerForOneAnswerSelection: addHandlerForOneAnswerSelection
   }
 
 })()
